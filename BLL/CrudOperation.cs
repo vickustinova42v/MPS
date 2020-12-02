@@ -15,7 +15,6 @@ namespace BLL
         {
             bd = new PhotoDBEntities();
         }
-
         public List<ProductModel> CheksList()
         {
             return bd.Product.ToList().Select(i => new ProductModel(i)).ToList();
