@@ -8,16 +8,20 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    class CrudOperation
+    public class CrudOperation
     {
         PhotoDBEntities bd;
         public CrudOperation()
         {
             bd = new PhotoDBEntities();
         }
-        public List<ProductModel> CheksList()
+        public List<ProductModel> ProductList()
         {
             return bd.Product.ToList().Select(i => new ProductModel(i)).ToList();
+        }
+        public List<CashierModel> CashierList()
+        {
+            return bd.Cashier.ToList().Select(i => new CashierModel(i)).ToList();
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Models
 {
-    class ProductModel
+    public class ProductModel
     {
         public ProductModel() { }
 

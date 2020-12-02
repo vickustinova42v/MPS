@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Models
 {
-    class RecieptModel
+   public class RecieptModel
     {
         public RecieptModel() { }
 

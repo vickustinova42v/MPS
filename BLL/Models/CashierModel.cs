@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Models
 {
-    class CashierModel
+    public class CashierModel
     {
         public CashierModel() { }
 

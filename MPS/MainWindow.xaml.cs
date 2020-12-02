@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using BLL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using BLL;
-using BLL.Models;
+
 
 namespace MPS
 {
@@ -22,9 +23,15 @@ namespace MPS
     /// </summary>
     public partial class MainWindow : Window
     {
+        CrudOperation BD = new CrudOperation();
+        List<ProductModel> products;
+        List<CashierModel> cashiers;
         public MainWindow()
         {
             InitializeComponent();
+            products = BD.ProductList();
+            cashiers = BD.CashierList();
+
         }
     }
 }
