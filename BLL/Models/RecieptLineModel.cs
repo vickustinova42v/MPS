@@ -9,8 +9,10 @@ namespace BLL.Models
 {
     public class RecieptLineModel
     {
-        public RecieptLineModel() { }
-
+        public int Id { get; set; }
+        public int Count { get; set; }
+        public int Product_FK { get; set; }
+        public int Reciept_FK { get; set; }
         public RecieptLineModel(RecieptLine recieptlines)
         {
             Id = recieptlines.Id;
@@ -18,9 +20,5 @@ namespace BLL.Models
             Product_FK = recieptlines.Product_FK;
             Reciept_FK = recieptlines.Reciept_FK;
         }
-        public int Id { get; set; }
-        public int Count { get; set; }
-        public int Product_FK { get; set; }
-        public int Reciept_FK { get; set; }
     }
 }

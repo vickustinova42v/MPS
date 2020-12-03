@@ -26,14 +26,12 @@ namespace MPS
         CrudOperation BD = new CrudOperation();
         List<ProductModel> products;
         List<CashierModel> cashiers;
-        List<CategoryModel> categorys;
       
         public MainWindow()
         {
             InitializeComponent();
             products = BD.ProductList();
             cashiers = BD.CashierList();
-            categorys = BD.CategoryList();
             Fill1();
             Fill2();
         }
@@ -44,12 +42,9 @@ namespace MPS
         void Fill2()
         {
             SpisokCassirov.ItemsSource = cashiers;
-
         }
-
         private void Delete__Prod(object sender, RoutedEventArgs e)
         {
-           
             if (SpisokProductov.SelectedItem == null)
                 return;
             if (SpisokProductov.SelectedItem != null) {
@@ -58,12 +53,11 @@ namespace MPS
                 TextBlock x = SpisokProductov.Columns[0].GetCellContent(SpisokProductov.Items[SpisokProductov.SelectedIndex]) as TextBlock;
 
                 if (x == null)
-                    MessageBox.Show("Id не найден");
+                    MessageBox.Show("Продукт не найден");
 
                 BD.DeleteProducts(x.Text);
                 SpisokProductov.ItemsSource = BD.ProductList();
                 //SpisokProductov.Items.Refresh();
-
             }
         }
 
@@ -75,6 +69,34 @@ namespace MPS
         private void Create__Prod(object sender, RoutedEventArgs e)
         {
             NewProduct f = new NewProduct();
+        }
+
+        private void Delete__Сash(object sender, RoutedEventArgs e)
+        {
+            if (SpisokCassirov.SelectedItem == null)
+                return;
+            if (SpisokCassirov.SelectedItem != null)
+            {
+                var selectedItem = SpisokCassirov.SelectedItem;
+                TextBlock x = SpisokCassirov.Columns[0].GetCellContent(SpisokCassirov.Items[SpisokCassirov.SelectedIndex]) as TextBlock;
+
+                if (x == null)
+                    MessageBox.Show("Продукт не найден");
+
+                BD.DeleteCashiers(x.Text);
+                SpisokCassirov.ItemsSource = BD.CashierList();
+                //SpisokProductov.Items.Refresh();
+            }
+        }
+
+        private void Update__Сash(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Create__Сash(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

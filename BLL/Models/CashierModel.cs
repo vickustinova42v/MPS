@@ -9,12 +9,13 @@ namespace BLL.Models
 {
     public class CashierModel
     {
+        public int Id { get; set; }
+        public string FIO { get; set; }
+
         public CashierModel(Cashier cashiers)
         {
             Id = cashiers.Id;
             FIO = cashiers.FIO;
         }
-        public int Id { get; set; }
-        public string FIO { get; set; }
     }
 }

@@ -9,14 +9,12 @@ namespace BLL.Models
 {
     public class CategoryModel
     {
-        public CategoryModel() { }
-
+        public int Id { get; set; }
+        public string Name { get; set; }
         public CategoryModel(Category categorys)
         {
             Id = categorys.Id;
             Name = categorys.Name;
         }
-        public int Id { get; set; }
-        public string Name { get; set; }
     }
 }

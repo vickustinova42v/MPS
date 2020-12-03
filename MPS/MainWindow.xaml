@@ -16,7 +16,7 @@
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Название" Width="160"/>
                             <DataGridTextColumn Binding="{Binding Path=Number}" Header="Номер" Width="160"/>
                             <DataGridTextColumn Binding="{Binding Path=Cost}" Header="Стоимость" Width="160"/>
-                            <DataGridTextColumn Binding="{Binding Path=Cost}" Header="Категория" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Path=Category_All_Prod}" Header="Категория" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="Удалить" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="76" Click="Delete__Prod"/>
@@ -32,10 +32,14 @@
                             <DataGridTextColumn Binding="{Binding Path=FIO}" Header="Название" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Content="Удалить" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="76"/>
-                    <Button Content="Изменить" HorizontalAlignment="Left" Margin="104,7,0,0" VerticalAlignment="Top" Width="76"/>
-                    <Button Content="Добавить" HorizontalAlignment="Left" Margin="200,7,0,0" VerticalAlignment="Top" Width="74"/>
+                    <Button Content="Удалить" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="76" Click="Delete__Сash"/>
+                    <Button Content="Изменить" HorizontalAlignment="Left" Margin="104,7,0,0" VerticalAlignment="Top" Width="76" Click="Update__Сash"/>
+                    <Button Content="Добавить" HorizontalAlignment="Left" Margin="200,7,0,0" VerticalAlignment="Top" Width="74" Click="Create__Сash"/>
                 </Grid>
+            </TabItem>
+            <TabItem Header="Отчет по кассирам" Width="120">
+            </TabItem>
+            <TabItem Header="Отчет по дате" Width="90">
             </TabItem>
         </TabControl>
     </Grid>

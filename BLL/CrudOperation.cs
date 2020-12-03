@@ -19,6 +19,10 @@ namespace BLL
         {
             return bd.Product.ToList().Select(i => new ProductModel(i, CategoryList())).ToList();
         }
+        public List<RecieptModel> RecieptList()
+        {
+            return bd.Reciept.ToList().Select(i => new RecieptModel(i, CashierList())).ToList();
+        }
         public List<CashierModel> CashierList()
         {
             return bd.Cashier.ToList().Select(i => new CashierModel(i)).ToList();
@@ -29,8 +33,14 @@ namespace BLL
         }
         public void DeleteProducts(string id)
         {
-         
             const string SQL = "DELETE FROM Product WHERE Id = ";
+            string sql1 = SQL + id;
+            bd.Database.ExecuteSqlCommand(sql1);
+        }
+
+        public void DeleteCashiers(string id)
+        {
+            const string SQL = "DELETE FROM Cashier WHERE Id = ";
             string sql1 = SQL + id;
             bd.Database.ExecuteSqlCommand(sql1);
         }
