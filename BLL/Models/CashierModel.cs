@@ -9,8 +9,6 @@ namespace BLL.Models
 {
     public class CashierModel
     {
-        public CashierModel() { }
-
         public CashierModel(Cashier cashiers)
         {
             Id = cashiers.Id;

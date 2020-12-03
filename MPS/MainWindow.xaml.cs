@@ -27,6 +27,7 @@ namespace MPS
         List<ProductModel> products;
         List<CashierModel> cashiers;
         List<CategoryModel> categorys;
+      
         public MainWindow()
         {
             InitializeComponent();
@@ -42,7 +43,38 @@ namespace MPS
         }
         void Fill2()
         {
+            SpisokCassirov.ItemsSource = cashiers;
 
+        }
+
+        private void Delete__Prod(object sender, RoutedEventArgs e)
+        {
+           
+            if (SpisokProductov.SelectedItem == null)
+                return;
+            if (SpisokProductov.SelectedItem != null) {
+
+                var selectedItem = SpisokProductov.SelectedItem;
+                TextBlock x = SpisokProductov.Columns[0].GetCellContent(SpisokProductov.Items[SpisokProductov.SelectedIndex]) as TextBlock;
+
+                if (x == null)
+                    MessageBox.Show("Id не найден");
+
+                BD.DeleteProducts(x.Text);
+                SpisokProductov.ItemsSource = BD.ProductList();
+                //SpisokProductov.Items.Refresh();
+
+            }
+        }
+
+        private void Update__Prod(object sender, RoutedEventArgs e)
+        {
+            NewProduct f = new NewProduct();
+        }
+
+        private void Create__Prod(object sender, RoutedEventArgs e)
+        {
+            NewProduct f = new NewProduct();
         }
     }
 }

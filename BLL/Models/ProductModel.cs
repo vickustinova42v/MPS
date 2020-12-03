@@ -16,8 +16,6 @@ namespace BLL.Models
         public int Category_FK { get; set; }
         public string Category_All_Prod { get; set; }
 
-        public ProductModel() { }
-
         public ProductModel(Product products, List<CategoryModel> categorys)
         {
 

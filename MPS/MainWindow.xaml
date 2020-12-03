@@ -7,25 +7,35 @@
         mc:Ignorable="d"
         Title="Система управления фотостудией" Height="500" Width="800">
     <Grid Margin="0,0,0,0">
-        <TabControl HorizontalAlignment="Left" Height="400" Margin="0,0,0,0" VerticalAlignment="Top" Width="700">
+        <TabControl HorizontalAlignment="Left" Height="459" Margin="0,0,0,0" VerticalAlignment="Top" Width="782">
             <TabItem Header="Продукты" Width="70">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="SpisokProductov" Margin="0,32,0,0" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Path=Id}" Header="Идентификатор" Width="100"/>
+                            <DataGridTextColumn x:Name="Id" Binding="{Binding Path=Id}" Header="Идентификатор" Width="100"/>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Название" Width="160"/>
                             <DataGridTextColumn Binding="{Binding Path=Number}" Header="Номер" Width="160"/>
                             <DataGridTextColumn Binding="{Binding Path=Cost}" Header="Стоимость" Width="160"/>
-                            <DataGridTextColumn x:Name="TextCat"  Header="Категория" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Path=Cost}" Header="Категория" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Удалить" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="76" Click="Delete__Prod"/>
+                    <Button Content="Изменить" HorizontalAlignment="Left" Margin="104,7,0,0" VerticalAlignment="Top" Width="76" Click="Update__Prod"/>
+                    <Button Content="Добавить" HorizontalAlignment="Left" Margin="200,7,0,0" VerticalAlignment="Top" Width="74" Click="Create__Prod"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Кассиры" Width="70">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid Margin="0,32,0,0" AutoGenerateColumns="False" x:Name="SpisokCassirov">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=Id}" Header="Идентификатор" Width="100"/>
+                            <DataGridTextColumn Binding="{Binding Path=FIO}" Header="Название" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="Удалить" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="76"/>
                     <Button Content="Изменить" HorizontalAlignment="Left" Margin="104,7,0,0" VerticalAlignment="Top" Width="76"/>
                     <Button Content="Добавить" HorizontalAlignment="Left" Margin="200,7,0,0" VerticalAlignment="Top" Width="74"/>
                 </Grid>
-            </TabItem>
-            <TabItem Header="TabItem" Width="70">
-                <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
     </Grid>
