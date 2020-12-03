@@ -23,5 +23,10 @@ namespace BLL
         {
             return bd.Cashier.ToList().Select(i => new CashierModel(i)).ToList();
         }
+
+        public List<CategoryModel> CategoryList()
+        {
+            return bd.Category.ToList().Select(i => new CategoryModel(i)).ToList();
+        }
     }
 }

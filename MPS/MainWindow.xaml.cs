@@ -26,11 +26,22 @@ namespace MPS
         CrudOperation BD = new CrudOperation();
         List<ProductModel> products;
         List<CashierModel> cashiers;
+        List<CategoryModel> categorys;
         public MainWindow()
         {
             InitializeComponent();
             products = BD.ProductList();
             cashiers = BD.CashierList();
+            categorys = BD.CategoryList();
+            Fill1();
+            Fill2();
+        }
+        void Fill1()
+        {
+            SpisokProductov.ItemsSource = products;
+        }
+        void Fill2()
+        {
 
         }
     }
