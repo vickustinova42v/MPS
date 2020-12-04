@@ -11,7 +11,6 @@ namespace BLL.Models
     {
         public int Id { get; set; }
         public string FIO { get; set; }
-
         public CashierModel(Cashier cashiers)
         {
             Id = cashiers.Id;
