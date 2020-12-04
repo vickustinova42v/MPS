@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MPS"
         mc:Ignorable="d"
-        Title="Система управления фотостудией" Height="500" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Система управления фотостудией" Height="500" Width="800" WindowStartupLocation="CenterScreen" Activated="Activated_window">
     <Grid Margin="0,0,0,0">
         <TabControl HorizontalAlignment="Center" Height="459" Margin="0,0,0,0" VerticalAlignment="Center" Width="782">
             <TabItem Header="Продукты" Width="70">

@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MPS"
         mc:Ignorable="d"
-        Title="NewCashier" Height="489.39" Width="361.936">
+        Title="NewCashier" Height="327.39" Width="397.936" WindowStartupLocation="CenterScreen">
     <Grid>
-
     </Grid>
 </Window>

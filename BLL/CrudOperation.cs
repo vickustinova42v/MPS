@@ -18,7 +18,8 @@ namespace BLL
         }
         public List<ProductModel> ProductList()
         {
-            return bd.Product.ToList().Select(i => new ProductModel(i, CategoryList())).ToList();
+         return bd.Product.ToList().Select(i => new ProductModel(i, CategoryList())).ToList();
+            
         }
         public List<RecieptModel> RecieptList()
         {
@@ -75,5 +76,29 @@ namespace BLL
             var resultCash = bd.Database.SqlQuery<resultCash>("SearchRecieptDate @id", new object[] {param1}).ToList();
             return resultCash;
         }
+
+        public void CreateProduct (string name_product, string number, int cost, int category_fk )
+        {
+
+            string sql = "INSERT INTO Product (Name, Number, Cost, Category_FK) VALUES ('" + name_product + "','" + number + "'," + cost + "," + category_fk + ");";
+            bd.Database.ExecuteSqlCommand(sql);
+
+        }
+
+        public void UpdateProduct(string id, string name_product, string number, int cost, int category_fk)
+        {
+            string sql_update = "UPDATE Product SET Name = '" + name_product + "', Number = '"+ number + "', Cost = "+ cost + ", Category_FK ="+ category_fk + "   WHERE Id = "+ id + " ;";
+            bd.Database.ExecuteSqlCommand(sql_update);
+
+        }
+
+       // public List<ads> GetProduct(string id)
+        //{
+          //  string sql_update = "SELECT * FROM Product WHERE Id =" + id;
+           // return bd.Database.SqlQuery<ProductModel>(sql_update).ToList(); ;
+
+           //}
+
+
     }
 }

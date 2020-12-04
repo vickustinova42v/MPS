@@ -26,12 +26,13 @@ namespace MPS
         CrudOperation BD = new CrudOperation();
         List<ProductModel> products;
         List<CashierModel> cashiers;
+        List<CategoryModel> categorys;
         public MainWindow()
         {
             InitializeComponent();
-            
             products = BD.ProductList();
             cashiers = BD.CashierList();
+            categorys = BD.CategoryList();
             Fill1();
             Fill2();
             Fill3();
@@ -73,11 +74,56 @@ namespace MPS
         private void Update__Prod(object sender, RoutedEventArgs e)
         {
             NewProduct f = new NewProduct();
+
+            if (SpisokProductov.SelectedItem == null)
+                return;
+            if (SpisokProductov.SelectedItem != null)
+            {
+
+                var selectedItem = SpisokProductov.SelectedItem;
+                TextBlock z = SpisokProductov.Columns[0].GetCellContent(SpisokProductov.Items[SpisokProductov.SelectedIndex]) as TextBlock;
+                TextBlock x = SpisokProductov.Columns[1].GetCellContent(SpisokProductov.Items[SpisokProductov.SelectedIndex]) as TextBlock;
+                TextBlock c = SpisokProductov.Columns[2].GetCellContent(SpisokProductov.Items[SpisokProductov.SelectedIndex]) as TextBlock;
+                TextBlock v = SpisokProductov.Columns[3].GetCellContent(SpisokProductov.Items[SpisokProductov.SelectedIndex]) as TextBlock;
+                TextBlock b = SpisokProductov.Columns[4].GetCellContent(SpisokProductov.Items[SpisokProductov.SelectedIndex]) as TextBlock;
+               
+                if (x == null)
+                {
+                    MessageBox.Show("Продукт не найден");
+                }
+                else
+                {
+                    f.Show();
+                    //Console.WriteLine(v.Text);
+                    //SpisokProductov.ItemsSource = BD.GetProduct(x.Text);
+                    f.ComboBoxCashier.ItemsSource = categorys;
+                    f.ComboBoxCashier.DisplayMemberPath = "Name";
+                    f.ComboBoxCashier.SelectedValuePath = "Id";
+                    foreach (var stream in categorys)
+                    if (stream.Name == b.Text)
+                    {
+                        //Console.WriteLine(stream.Id - 1);
+                        //Console.WriteLine(stream.Name);
+                        f.ComboBoxCashier.SelectedIndex = stream.Id - 1;
+                    }
+                    f.TextBoxId.SelectedText = "1";
+                    f.TextBoxProdId.SelectedText = z.Text;
+                    f.TextBoxName.SelectedText = x.Text;
+                    f.TextBoxNumber.SelectedText = c.Text;
+                    f.TextBoxCost.SelectedText = v.Text;
+                }
+                SpisokProductov.Items.Refresh();
+            }
+           
         }
 
         private void Create__Prod(object sender, RoutedEventArgs e)
         {
             NewProduct f = new NewProduct();
+            string a = "asdads"; 
+            string b = "asdads"; 
+            BD.CreateProduct(a, b, 1, 1 );
+            f.Show();
         }
 
         private void Delete__Сash(object sender, RoutedEventArgs e)
@@ -118,8 +164,8 @@ namespace MPS
             }
             else
             {
-                int cash = (int)CahierCombobox.SelectedValue;
-                CashierResult.ItemsSource = (System.Collections.IEnumerable)BD.SearchRecieptCashier(cash);
+                int id_cashier= (int)CahierCombobox.SelectedValue;
+                CashierResult.ItemsSource = (System.Collections.IEnumerable)BD.SearchRecieptCashier(id_cashier);
             }
 
         }
@@ -136,5 +182,7 @@ namespace MPS
                 DateResult.ItemsSource = (System.Collections.IEnumerable)BD.SearchRecieptDate(selectedDateLeft, selectedDateRight);
             }
         }
+
+     
     }
 }
