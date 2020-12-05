@@ -10,7 +10,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FIO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FIO" Type="varchar" MaxLength="70" Nullable="false" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -139,7 +139,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FIO" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Reciept" Relationship="Self.FK_Reciept_Cashier" FromRole="Cashier" ToRole="Reciept" />
         </EntityType>
         <EntityType Name="Category">

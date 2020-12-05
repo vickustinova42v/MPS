@@ -92,13 +92,19 @@ namespace BLL
 
         }
 
-       // public List<ads> GetProduct(string id)
-        //{
-          //  string sql_update = "SELECT * FROM Product WHERE Id =" + id;
-           // return bd.Database.SqlQuery<ProductModel>(sql_update).ToList(); ;
+        public void CreateCashier(string FIO_Cashier)
+        {
 
-           //}
+            string sql = "INSERT INTO Cashier (FIO) VALUES ('" + FIO_Cashier + "');";
+            bd.Database.ExecuteSqlCommand(sql);
 
+        }
+
+        public void UpdateCashier(string id, string FIO_Cashier)
+        {
+            string sql_update = "UPDATE Cashier SET FIO = '" + FIO_Cashier + "' WHERE Id = " + id + " ;";
+            bd.Database.ExecuteSqlCommand(sql_update);
+        }
 
     }
 }

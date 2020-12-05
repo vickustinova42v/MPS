@@ -5,71 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MPS"
         mc:Ignorable="d"
-        Title="Система управления фотостудией" Height="500" Width="800" WindowStartupLocation="CenterScreen" Activated="Activated_window">
-    <Grid Margin="0,0,0,0">
-        <TabControl HorizontalAlignment="Center" Height="459" Margin="0,0,0,0" VerticalAlignment="Center" Width="782">
-            <TabItem Header="Продукты" Width="70">
-                <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="SpisokProductov" Margin="0,32,0,0" AutoGenerateColumns="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn x:Name="Id" Binding="{Binding Path=Id}" Header="Идентификатор" Width="100"/>
-                            <DataGridTextColumn Binding="{Binding Path=Name}" Header="Название" Width="160"/>
-                            <DataGridTextColumn Binding="{Binding Path=Number}" Header="Номер" Width="160"/>
-                            <DataGridTextColumn Binding="{Binding Path=Cost}" Header="Стоимость" Width="160"/>
-                            <DataGridTextColumn Binding="{Binding Path=Category_All_Prod}" Header="Категория" Width="*"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Button Content="Удалить" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="76" Click="Delete__Prod"/>
-                    <Button Content="Изменить" HorizontalAlignment="Left" Margin="104,7,0,0" VerticalAlignment="Top" Width="76" Click="Update__Prod"/>
-                    <Button Content="Добавить" HorizontalAlignment="Left" Margin="200,7,0,0" VerticalAlignment="Top" Width="74" Click="Create__Prod"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Кассиры" Width="70">
-                <Grid Background="#FFE5E5E5">
-                    <DataGrid Margin="0,32,0,0" AutoGenerateColumns="False" x:Name="SpisokCassirov">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Path=Id}" Header="Идентификатор" Width="100"/>
-                            <DataGridTextColumn Binding="{Binding Path=FIO}" Header="Название" Width="*"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Button Content="Удалить" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="76" Click="Delete__Сash"/>
-                    <Button Content="Изменить" HorizontalAlignment="Left" Margin="104,7,0,0" VerticalAlignment="Top" Width="76" Click="Update__Сash"/>
-                    <Button Content="Добавить" HorizontalAlignment="Left" Margin="200,7,0,0" VerticalAlignment="Top" Width="74" Click="Create__Сash"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Отчет по кассирам" Width="120">
-                <Grid Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="299*"/>
-                        <ColumnDefinition Width="477*"/>
-                    </Grid.ColumnDefinitions>
-                    <DataGrid Margin="0,32,0,0" AutoGenerateColumns="False" Grid.ColumnSpan="2" x:Name="CashierResult">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Path=Id}" Header="Идентификатор" Width="160"/>
-                            <DataGridTextColumn Binding="{Binding Path=DateTime}" Header="Дата и время" Width="160"/>
-                            <DataGridTextColumn Binding="{Binding Path=Result}" Header="Результат" Width="160"/>
-                            <DataGridTextColumn Binding="{Binding Path=FIO}" Header="Кассир" Width="*"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <ComboBox x:Name="CahierCombobox" Margin="10,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120"/>
-                    <Button Content="Найти" HorizontalAlignment="Left" Margin="135,7,0,0" VerticalAlignment="Top" Width="75" Click="SearchCash"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Отчет по дате" Width="90">
-                <Grid Background="#FFE5E5E5">
-                    <DataGrid Margin="0,32,0,0" AutoGenerateColumns="False" x:Name="DateResult">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Path=Id}" Header="Идентификатор" Width="160"/>
-                            <DataGridTextColumn Binding="{Binding Path=DateTime}" Header="Дата и время" Width="160"/>
-                            <DataGridTextColumn Binding="{Binding Path=Result}" Header="Результат" Width="160"/>
-                            <DataGridTextColumn Binding="{Binding Path=FIO}" Header="Кассир" Width="*"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <DatePicker x:Name="DatePickerLeft" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top"/>
-                    <DatePicker x:Name="DatePickerRight" HorizontalAlignment="Left" Margin="115,3,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Найти" HorizontalAlignment="Left" Margin="220,7,0,0" VerticalAlignment="Top" Width="74" Click="SearchDate"/>
-                </Grid>
-            </TabItem>
-        </TabControl>
+       Title="Вход" Height="326" Width="432.5" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button Content="Войти" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Center" Width="100" Click="CheckPassword"/>
+        <Button Content="Закрыть" HorizontalAlignment="Center" Margin="154,150,154,29" VerticalAlignment="Center" Width="100" Click="Close_Click"/>
+        <PasswordBox x:Name="PasswordInput" HorizontalAlignment="Center" Margin="0,0,0,30" VerticalAlignment="Center" Width="100"/>
+        <Label Content="Введите пароль" HorizontalAlignment="Center" Margin="0,0,0,100" VerticalAlignment="Center"/>
     </Grid>
 </Window>

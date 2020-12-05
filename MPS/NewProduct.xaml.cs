@@ -43,7 +43,7 @@ namespace MPS
             }
             else if (function_id == "2")
             {
-
+                BD.CreateProduct(name, number, cost, (int)category_id);
             }
             else
             {
@@ -52,10 +52,15 @@ namespace MPS
             this.Close();
         }
 
-        private void Window_Closed(object sender, EventArgs e)
+        private void NumericOnly(System.Object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            MainWindow main = new MainWindow();
-            main.UpdateLayout();
+            e.Handled = IsTextNumeric(e.Text);
+        }
+
+        private static bool IsTextNumeric(string str)
+        {
+            System.Text.RegularExpressions.Regex reg = new System.Text.RegularExpressions.Regex("[^0-9]");
+            return reg.IsMatch(str);
         }
     }
 }
