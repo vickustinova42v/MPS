@@ -37,10 +37,12 @@ namespace MPS
             if (function_id == "1")
             {
                 BD.UpdateCashier(cashier_id, fio);
+                MessageBox.Show("Кассир обновлен");
             }
             else if (function_id == "2")
             {
                 BD.CreateCashier(fio);
+                MessageBox.Show("Кассир добавлен");
             }
             else
             {

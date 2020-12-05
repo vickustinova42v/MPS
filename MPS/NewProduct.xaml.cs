@@ -40,10 +40,12 @@ namespace MPS
             if (function_id == "1")
             {
                 BD.UpdateProduct(product_id, name, number, cost, (int)category_id);
+                MessageBox.Show("Продукт обновлен");
             }
             else if (function_id == "2")
             {
                 BD.CreateProduct(name, number, cost, (int)category_id);
+                MessageBox.Show("Продукт добавлен");
             }
             else
             {
