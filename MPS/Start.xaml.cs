@@ -26,12 +26,14 @@ namespace MPS
         List<ProductModel> products;
         List<CashierModel> cashiers;
         List<CategoryModel> categorys;
+        List<RecieptModel> reciepts;
         public Start()
         {
             InitializeComponent();
             products = BD.ProductList();
             cashiers = BD.CashierList();
             categorys = BD.CategoryList();
+            reciepts = BD.RecieptList();
             Fill1();
             Fill2();
             Fill3();
@@ -54,7 +56,7 @@ namespace MPS
         private void Delete__Prod(object sender, RoutedEventArgs e)
         {
             if (SpisokProductov.SelectedItem == null)
-                return;
+                MessageBox.Show("Продукт не выбран");
             if (SpisokProductov.SelectedItem != null)
             {
 
@@ -78,7 +80,7 @@ namespace MPS
             NewProduct f = new NewProduct();
 
             if (SpisokProductov.SelectedItem == null)
-                return;
+                MessageBox.Show("Продукт не выбран");
             if (SpisokProductov.SelectedItem != null)
             {
 
@@ -135,7 +137,7 @@ namespace MPS
         private void Delete__Сash(object sender, RoutedEventArgs e)
         {
             if (SpisokCassirov.SelectedItem == null)
-                return;
+                MessageBox.Show("Кассир не выбран"); ;
             if (SpisokCassirov.SelectedItem != null)
             {
                 var selectedItem = SpisokCassirov.SelectedItem;
@@ -158,7 +160,7 @@ namespace MPS
         {
             NewCashier f = new NewCashier();
             if (SpisokCassirov.SelectedItem == null)
-                return;
+                MessageBox.Show("Кассир не выбран");
             if (SpisokCassirov.SelectedItem != null)
             {
 

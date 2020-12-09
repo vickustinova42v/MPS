@@ -46,28 +46,37 @@ namespace MPS
             {
                 MessageBox.Show("Ошибка");
             }
-            var function_id = TextBoxId.Text;
-            var product_id = TextBoxProdId.Text;
-            var category_id = ComboBoxCashier.SelectedValue;
-            var name = TextBoxName.Text;
-            var number = TextBoxNumber.Text;
-            var cost = Convert.ToInt32(TextBoxCost.Text);
 
-            if (function_id == "1")
+
+            if (TextBoxName.Text ==""  || TextBoxNumber.Text == "" || TextBoxCost.Text == "")
             {
-                sales.Update(product_id, name, number, cost, (int)category_id, sale, function_id);
-                MessageBox.Show("Продукт обновлен");
+                MessageBox.Show("Заполните все поля");
             }
-            else if (function_id == "2")
-            {
-                sales.Update(product_id, name, number, cost, (int)category_id, sale, function_id);
-                MessageBox.Show("Продукт добавлен");
-            }
+
             else
             {
-                MessageBox.Show("Ошибка");
+                var function_id = TextBoxId.Text;
+                var product_id = TextBoxProdId.Text;
+                var category_id = ComboBoxCashier.SelectedValue;
+                var name = TextBoxName.Text;
+                var number = TextBoxNumber.Text;
+                var cost = Convert.ToInt32(TextBoxCost.Text);
+                if (function_id == "1")
+                {
+                    sales.Update(product_id, name, number, cost, (int)category_id, sale, function_id);
+                    MessageBox.Show("Продукт обновлен");
+                }
+                else if (function_id == "2")
+                {
+                    sales.Update(product_id, name, number, cost, (int)category_id, sale, function_id);
+                    MessageBox.Show("Продукт добавлен");
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка");
+                }
+                this.Close();
             }
-            this.Close();
         }
 
         private void NumericOnly(object sender, System.Windows.Input.TextCompositionEventArgs e)

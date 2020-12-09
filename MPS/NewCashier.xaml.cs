@@ -29,26 +29,32 @@ namespace MPS
 
         private void UpdateСash(object sender, RoutedEventArgs e)
         {
-            var function_id = TextBoxId.Text;
-            var cashier_id = TextBoxCashId.Text;
-            var fio = TextBoxCashier.Text;
-
-            Console.WriteLine(function_id);
-            if (function_id == "1")
+            if (TextBoxCashier.Text == "")
             {
-                BD.UpdateCashier(cashier_id, fio);
-                MessageBox.Show("Кассир обновлен");
-            }
-            else if (function_id == "2")
-            {
-                BD.CreateCashier(fio);
-                MessageBox.Show("Кассир добавлен");
+                MessageBox.Show("Заполните поле");
             }
             else
             {
-                MessageBox.Show("Ошибка");
+                var function_id = TextBoxId.Text;
+                var cashier_id = TextBoxCashId.Text;
+                var fio = TextBoxCashier.Text;
+                Console.WriteLine(function_id);
+                if (function_id == "1")
+                {
+                    BD.UpdateCashier(cashier_id, fio);
+                    MessageBox.Show("Кассир обновлен");
+                }
+                else if (function_id == "2")
+                {
+                    BD.CreateCashier(fio);
+                    MessageBox.Show("Кассир добавлен");
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка");
+                }
+                this.Close();
             }
-            this.Close();
         }
     }
 }
