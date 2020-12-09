@@ -11,7 +11,7 @@ namespace BLL.Models
     {
         public int Id { get; set; }
         public System.DateTime DateTime { get; set; }
-        public double Result { get; set; }
+        public int Result { get; set; }
         public int Cashier_FK { get; set; }
         public string Cashier_All_Prod { get; set; }
         public RecieptModel(Reciept reciepts, List<CashierModel> cashiers)

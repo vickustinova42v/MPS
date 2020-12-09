@@ -22,7 +22,7 @@ namespace DAL
     
         public int Id { get; set; }
         public System.DateTime DateTime { get; set; }
-        public double Result { get; set; }
+        public int Result { get; set; }
         public int Cashier_FK { get; set; }
     
         public virtual Cashier Cashier { get; set; }

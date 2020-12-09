@@ -51,7 +51,7 @@ namespace BLL
             public int Id { get; set; }
             public string FIO { get; set; }
             public System.DateTime DateTime { get; set; }
-            public double Result { get; set; }
+            public int Result { get; set; }
         }
 
         public object SearchRecieptDate(DateTime a, DateTime b)
@@ -67,7 +67,7 @@ namespace BLL
             public int Id { get; set; }
             public string FIO { get; set; }
             public System.DateTime DateTime { get; set; }
-            public double Result { get; set; }
+            public int Result { get; set; }
         }
 
         public object SearchRecieptCashier(int c)
@@ -77,17 +77,17 @@ namespace BLL
             return resultCash;
         }
 
-        public void CreateProduct (string name_product, string number, int cost, int category_fk )
+        public void CreateProduct(string name_product, string number, int cost, int category_fk, int sale, int costSale)
         {
 
-            string sql = "INSERT INTO Product (Name, Number, Cost, Category_FK) VALUES ('" + name_product + "','" + number + "'," + cost + "," + category_fk + ");";
+            string sql = "INSERT INTO Product (Name, Number, Cost, Category_FK, Sale, CostAfterSale) VALUES ('" + name_product + "','" + number + "'," + cost + ","+ category_fk + "," + sale + "," + costSale + ");";
             bd.Database.ExecuteSqlCommand(sql);
 
         }
 
-        public void UpdateProduct(string id, string name_product, string number, int cost, int category_fk)
+        public void UpdateProduct(string id, string name_product, string number, int cost, int category_fk, int sale, int costSale)
         {
-            string sql_update = "UPDATE Product SET Name = '" + name_product + "', Number = '"+ number + "', Cost = "+ cost + ", Category_FK ="+ category_fk + "   WHERE Id = "+ id + " ;";
+            string sql_update = "UPDATE Product SET Name = '" + name_product + "', Number = '" + number + "', Cost = " + cost + ", Category_FK =" + category_fk + " , Sale =" + sale + " , CostAfterSale =" + costSale + "   WHERE Id = " + id + " ;";
             bd.Database.ExecuteSqlCommand(sql_update);
 
         }

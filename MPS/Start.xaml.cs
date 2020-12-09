@@ -88,7 +88,8 @@ namespace MPS
                 TextBlock c = SpisokProductov.Columns[2].GetCellContent(SpisokProductov.Items[SpisokProductov.SelectedIndex]) as TextBlock;
                 TextBlock v = SpisokProductov.Columns[3].GetCellContent(SpisokProductov.Items[SpisokProductov.SelectedIndex]) as TextBlock;
                 TextBlock b = SpisokProductov.Columns[4].GetCellContent(SpisokProductov.Items[SpisokProductov.SelectedIndex]) as TextBlock;
-
+                TextBlock d = SpisokProductov.Columns[5].GetCellContent(SpisokProductov.Items[SpisokProductov.SelectedIndex]) as TextBlock;
+                TextBlock m = SpisokProductov.Columns[6].GetCellContent(SpisokProductov.Items[SpisokProductov.SelectedIndex]) as TextBlock;
                 if (x == null)
                 {
                     MessageBox.Show("Продукт не найден");

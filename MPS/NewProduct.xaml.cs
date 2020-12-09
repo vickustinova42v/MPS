@@ -21,7 +21,7 @@ namespace MPS
     /// </summary>
     public partial class NewProduct : Window
     {
-        CrudOperation BD = new CrudOperation();
+        Sales sales = new Sales();
         public NewProduct()
         {
             InitializeComponent();
@@ -29,6 +29,23 @@ namespace MPS
 
         private void UpdateProd(object sender, RoutedEventArgs e)
         {
+            int sale = 0;
+            if (BlackRad.IsChecked == true)
+            {
+                sale = 1;
+            }
+            else if (SummerRad.IsChecked == true)
+            {
+                sale = 2;
+            }
+            else if (ZeroRad.IsChecked == true)
+            {
+                sale = 0;
+            }
+            else
+            {
+                MessageBox.Show("Ошибка");
+            }
             var function_id = TextBoxId.Text;
             var product_id = TextBoxProdId.Text;
             var category_id = ComboBoxCashier.SelectedValue;
@@ -36,15 +53,14 @@ namespace MPS
             var number = TextBoxNumber.Text;
             var cost = Convert.ToInt32(TextBoxCost.Text);
 
-            Console.WriteLine(function_id);
             if (function_id == "1")
             {
-                BD.UpdateProduct(product_id, name, number, cost, (int)category_id);
+                sales.Update(product_id, name, number, cost, (int)category_id, sale, function_id);
                 MessageBox.Show("Продукт обновлен");
             }
             else if (function_id == "2")
             {
-                BD.CreateProduct(name, number, cost, (int)category_id);
+                sales.Update(product_id, name, number, cost, (int)category_id, sale, function_id);
                 MessageBox.Show("Продукт добавлен");
             }
             else
@@ -54,7 +70,7 @@ namespace MPS
             this.Close();
         }
 
-        private void NumericOnly(System.Object sender, System.Windows.Input.TextCompositionEventArgs e)
+        private void NumericOnly(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             e.Handled = IsTextNumeric(e.Text);
         }

@@ -28,6 +28,8 @@
           <Property Name="Number" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Cost" Type="int" Nullable="false" />
           <Property Name="Category_FK" Type="int" Nullable="false" />
+          <Property Name="Sale" Type="int" Nullable="false" />
+          <Property Name="CostAfterSale" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Reciept">
           <Key>
@@ -35,7 +37,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DateTime" Type="datetime" Nullable="false" />
-          <Property Name="Result" Type="float" Nullable="false" />
+          <Property Name="Result" Type="int" Nullable="false" />
           <Property Name="Cashier_FK" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="RecieptLine">
@@ -159,6 +161,8 @@
           <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Cost" Type="Int32" Nullable="false" />
           <Property Name="Category_FK" Type="Int32" Nullable="false" />
+          <Property Name="Sale" Type="Int32" Nullable="false" />
+          <Property Name="CostAfterSale" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="RecieptLine" Relationship="Self.FK_RecieptLine_Product" FromRole="Product" ToRole="RecieptLine" />
         </EntityType>
@@ -168,7 +172,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Result" Type="Double" Nullable="false" />
+          <Property Name="Result" Type="Int32" Nullable="false" />
           <Property Name="Cashier_FK" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Cashier" Relationship="Self.FK_Reciept_Cashier" FromRole="Reciept" ToRole="Cashier" />
           <NavigationProperty Name="RecieptLine" Relationship="Self.FK_RecieptLine_Reciept" FromRole="Reciept" ToRole="RecieptLine" />
@@ -296,6 +300,8 @@
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="Category_FK" ColumnName="Category_FK" />
+                <ScalarProperty Name="Sale" ColumnName="Sale" />
+                <ScalarProperty Name="CostAfterSale" ColumnName="CostAfterSale" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

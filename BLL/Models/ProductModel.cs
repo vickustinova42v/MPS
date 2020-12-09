@@ -15,6 +15,8 @@ namespace BLL.Models
         public int Cost { get; set; }
         public int Category_FK { get; set; }
         public string Category_All_Prod { get; set; }
+        public int Sale { get; set; }
+        public int CostAfterSale { get; set; }
 
         public ProductModel(Product products, List<CategoryModel> categorys)
         {
@@ -25,7 +27,8 @@ namespace BLL.Models
             Cost = products.Cost;
             Category_FK = products.Category_FK;
             Category_All_Prod = categorys.Where(i => i.Id == Category_FK).FirstOrDefault().Name;
-            
+            Sale = products.Sale;
+            CostAfterSale = products.CostAfterSale;
         }
     }
 }

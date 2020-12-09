@@ -5,18 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MPS"
         mc:Ignorable="d"
-       Title="Система управления фотостудией" Height="500" Width="800" WindowStartupLocation="CenterScreen">
+       Title="Система управления фотостудией" Height="500" Width="970" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,0,0">
-        <TabControl HorizontalAlignment="Center" Height="459" Margin="0,0,0,0" VerticalAlignment="Center" Width="782">
+        <TabControl HorizontalAlignment="Center" Height="459" Margin="0,0,0,0" VerticalAlignment="Center" Width="952">
             <TabItem Header="Продукты" Width="70">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="SpisokProductov" Margin="0,32,0,0" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn x:Name="Id" Binding="{Binding Path=Id}" Header="Идентификатор" Width="100"/>
-                            <DataGridTextColumn Binding="{Binding Path=Name}" Header="Название" Width="160"/>
-                            <DataGridTextColumn Binding="{Binding Path=Number}" Header="Номер" Width="160"/>
-                            <DataGridTextColumn Binding="{Binding Path=Cost}" Header="Стоимость" Width="160"/>
+                            <DataGridTextColumn x:Name="Id" Binding="{Binding Path=Id}" Header="Идентификатор" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Path=Name}" Header="Название" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Path=Number}" Header="Номер" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Path=Cost}" Header="Стоимость" Width="*"/>
                             <DataGridTextColumn Binding="{Binding Path=Category_All_Prod}" Header="Категория" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Path=Sale}" Header="Скидка в %" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Path=CostAfterSale}" Header="Стоимость после скидки" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="Удалить" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="76" Click="Delete__Prod"/>

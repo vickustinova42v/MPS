@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MPS"
         mc:Ignorable="d"
-        Title="Продукт" Height="374.232" Width="395.847" WindowStartupLocation="CenterScreen">
+        Title="Продукт" Height="400" Width="395.847" WindowStartupLocation="CenterScreen">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
 
         <TextBox x:Name="TextBoxProdId" HorizontalAlignment="Center" Height="23" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Visibility="Hidden"/>
@@ -19,7 +19,9 @@
         <TextBox x:Name="TextBoxNumber" HorizontalAlignment="Center" Height="23" Margin="0,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
         <Label Content="Стоимость" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextBoxCost" PreviewTextInput="NumericOnly" HorizontalAlignment="Center" Height="23" Margin="0,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-        <Button x:Name="Update" Content="Подтвердить" HorizontalAlignment="center" Margin="0,180,00,0" VerticalAlignment="Top" Width="200" Click="UpdateProd"/>
-        
+        <Button x:Name="Update" Content="Подтвердить" HorizontalAlignment="center" Margin="0,300,00,0" VerticalAlignment="Top" Width="200" Click="UpdateProd"/>
+        <RadioButton x:Name="BlackRad" Content="Черная пятница" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="SummerRad" Content="Летняя пора" HorizontalAlignment="Left" Margin="0,220,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="ZeroRad" Content="Без скидки" HorizontalAlignment="Left" Margin="0,260,0,0" VerticalAlignment="Top" IsChecked="True"/>
     </Grid>
 </Window>
