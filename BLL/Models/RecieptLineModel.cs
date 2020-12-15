@@ -13,12 +13,14 @@ namespace BLL.Models
         public int Count { get; set; }
         public int Product_FK { get; set; }
         public int Reciept_FK { get; set; }
-        public RecieptLineModel(RecieptLine recieptlines)
+        public string ProductName { get; set; }
+        public RecieptLineModel(RecieptLine recieptlines, List<ProductModel> products)
         {
             Id = recieptlines.Id;
             Count = recieptlines.Count;
             Product_FK = recieptlines.Product_FK;
             Reciept_FK = recieptlines.Reciept_FK;
+            ProductName = products.Where(i => i.Id == Product_FK).FirstOrDefault().Name;
         }
     }
 }

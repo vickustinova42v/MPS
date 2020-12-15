@@ -20,20 +20,18 @@ namespace MPS
     /// <summary>
     /// Логика взаимодействия для Start.xaml
     /// </summary>
-    public partial class Start : Window
+    public partial class Admin : Window
     {
         CrudOperation BD = new CrudOperation();
         List<ProductModel> products;
         List<CashierModel> cashiers;
         List<CategoryModel> categorys;
-        List<RecieptModel> reciepts;
-        public Start()
+        public Admin()
         {
             InitializeComponent();
             products = BD.ProductList();
             cashiers = BD.CashierList();
             categorys = BD.CategoryList();
-            reciepts = BD.RecieptList();
             Fill1();
             Fill2();
             Fill3();
@@ -121,7 +119,6 @@ namespace MPS
             }
 
         }
-
         private void Create__Prod(object sender, RoutedEventArgs e)
         {
             NewProduct f = new NewProduct();
@@ -132,28 +129,6 @@ namespace MPS
             f.TextBoxId.SelectedText = "2";
             f.Show();
             SpisokProductov.Items.Refresh();
-        }
-
-        private void Delete__Сash(object sender, RoutedEventArgs e)
-        {
-            if (SpisokCassirov.SelectedItem == null)
-                MessageBox.Show("Кассир не выбран"); ;
-            if (SpisokCassirov.SelectedItem != null)
-            {
-                var selectedItem = SpisokCassirov.SelectedItem;
-                TextBlock x = SpisokCassirov.Columns[0].GetCellContent(SpisokCassirov.Items[SpisokCassirov.SelectedIndex]) as TextBlock;
-
-                if (x == null)
-                {
-                    MessageBox.Show("Кассир не найден");
-                }
-                else
-                {
-                    BD.DeleteCashiers(x.Text);
-                    SpisokCassirov.ItemsSource = BD.CashierList();
-                    CahierCombobox.ItemsSource = BD.CashierList();
-                }
-            }
         }
 
         private void Update__Сash(object sender, RoutedEventArgs e)
@@ -221,7 +196,7 @@ namespace MPS
 
         private void Update__Window(object sender, RoutedEventArgs e)
         {
-            Start newWindow = new Start();
+            Admin newWindow = new Admin();
             Application.Current.MainWindow = newWindow;
             newWindow.Show();
             this.Close();

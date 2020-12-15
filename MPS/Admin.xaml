@@ -1,4 +1,4 @@
-﻿<Window x:Class="MPS.Start"
+﻿<Window x:Class="MPS.Admin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -35,10 +35,9 @@
                             <DataGridTextColumn Binding="{Binding Path=FIO}" Header="Название" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Content="Удалить" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="76" Click="Delete__Сash"/>
-                    <Button Content="Изменить" HorizontalAlignment="Left" Margin="110,7,0,0" VerticalAlignment="Top" Width="76" Click="Update__Сash"/>
-                    <Button Content="Добавить" HorizontalAlignment="Left" Margin="210,7,0,0" VerticalAlignment="Top" Width="74" Click="Create__Сash"/>
-                    <Button Content="Обновить" HorizontalAlignment="Left" Margin="310,7,0,0" VerticalAlignment="Top" Width="74" Click="Update__Window"/>
+                    <Button Content="Изменить" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="76" Click="Update__Сash"/>
+                    <Button Content="Добавить" HorizontalAlignment="Left" Margin="110,7,0,0" VerticalAlignment="Top" Width="74" Click="Create__Сash"/>
+                    <Button Content="Обновить" HorizontalAlignment="Left" Margin="210,7,0,0" VerticalAlignment="Top" Width="74" Click="Update__Window"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Отчет по кассирам" Width="120">

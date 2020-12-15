@@ -23,29 +23,19 @@ namespace MPS
     /// </summary>
     public partial class MainWindow : Window
     {
-        const string password = "12345";
-        Start start = new Start();
-        public MainWindow()
+        private void Admin(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
-        }
-
-        private void CheckPassword(object sender, RoutedEventArgs e)
-        {
-            if (PasswordInput.Password == password)
-            {
-                this.Close();
-                start.Show();
-            }
-            else
-            {
-                MessageBox.Show("Пароль неверный");
-            }
-        }
-
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
+            AdminLogin admin = new AdminLogin();
+            admin.Show();
             this.Close();
+        }
+
+        private void Cashier(object sender, RoutedEventArgs e)
+        {
+            CashierLogin cashier = new CashierLogin();
+            cashier.Show();
+            this.Close();
+
         }
     }
 }

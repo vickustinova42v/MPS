@@ -1,0 +1,33 @@
+﻿<Window x:Class="MPS.Cashier"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MPS"
+        mc:Ignorable="d"
+        Title="Касса" Height="500" Width="820" WindowStartupLocation="CenterScreen" >
+    <Grid HorizontalAlignment="Center"  VerticalAlignment="Center" Width="840">
+        <DataGrid x:Name="Products" HorizontalAlignment="left" Height="350" Margin="20,30,0,0" VerticalAlignment="Top" Width="400" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="Id" Binding="{Binding Path=Id}" Header="Идентификатор" Width="*" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Название" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=Number}" Header="Номер" Width="*" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding Path=Cost}" Header="Стоимость" Width="*" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding Path=Category_All_Prod}" Header="Категория" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=Sale}" Header="Скидка в %" Width="*" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding Path=CostAfterSale}" Header="Стоимость" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="Lines" HorizontalAlignment="Right" Height="275" Margin="0,30,20,0" VerticalAlignment="top" Width="400" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Id}" Header="Идентификатор" Width="*" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding Path=Count}" Header="Количество" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=ProductName}" Header="Товар" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=Reciept_FK}" Header="Идентификатор чека" Width="*" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding Path=Product_FK}" Header="Идентификатор продукта" Width="*" Visibility="Hidden"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox IsReadOnly="True" x:Name="CashierName" HorizontalAlignment="Left" Height="23" Margin="40,400,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360"/>
+        <TextBox IsReadOnly="True" x:Name="CashierId" HorizontalAlignment="Left" Height="23" Margin="40,400,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Visibility="Hidden"/>
+    </Grid>
+</Window>
