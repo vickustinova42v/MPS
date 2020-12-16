@@ -22,9 +22,12 @@ namespace MPS
     public partial class NewCashier : Window
     {
         CrudOperation BD = new CrudOperation();
+        Admin admin = new Admin();
+        List<CashierModel> cashiers;
         public NewCashier()
         {
             InitializeComponent();
+            cashiers = BD.CashierList();
         }
 
         private void UpdateСash(object sender, RoutedEventArgs e)
@@ -38,15 +41,17 @@ namespace MPS
                 var function_id = TextBoxId.Text;
                 var cashier_id = TextBoxCashId.Text;
                 var fio = TextBoxCashier.Text;
+                var login = TextBoxLogin.Text;
+                var password = TextBoxPassword.Text;
                 Console.WriteLine(function_id);
                 if (function_id == "1")
                 {
-                    BD.UpdateCashier(cashier_id, fio);
+                    BD.UpdateCashier(cashier_id, fio, login, password);
                     MessageBox.Show("Кассир обновлен");
                 }
                 else if (function_id == "2")
                 {
-                    BD.CreateCashier(fio);
+                    BD.CreateCashier(fio, login, password);
                     MessageBox.Show("Кассир добавлен");
                 }
                 else

@@ -2,6 +2,7 @@
 using BLL.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -115,7 +116,6 @@ namespace MPS
                     f.TextBoxCost.SelectedText = v.Text;
                     f.Show();
                 }
-                SpisokProductov.Items.Refresh();
             }
 
         }
@@ -128,7 +128,7 @@ namespace MPS
             f.ComboBoxCashier.SelectedIndex = 1;
             f.TextBoxId.SelectedText = "2";
             f.Show();
-            SpisokProductov.Items.Refresh();
+
         }
 
         private void Update__Сash(object sender, RoutedEventArgs e)
@@ -142,6 +142,8 @@ namespace MPS
                 var selectedItem = SpisokCassirov.SelectedItem;
                 TextBlock z = SpisokCassirov.Columns[0].GetCellContent(SpisokCassirov.Items[SpisokCassirov.SelectedIndex]) as TextBlock;
                 TextBlock x = SpisokCassirov.Columns[1].GetCellContent(SpisokCassirov.Items[SpisokCassirov.SelectedIndex]) as TextBlock;
+                TextBlock m = SpisokCassirov.Columns[2].GetCellContent(SpisokCassirov.Items[SpisokCassirov.SelectedIndex]) as TextBlock;
+                TextBlock n = SpisokCassirov.Columns[3].GetCellContent(SpisokCassirov.Items[SpisokCassirov.SelectedIndex]) as TextBlock;
 
                 if (x == null)
                 {
@@ -152,9 +154,10 @@ namespace MPS
                     f.TextBoxId.SelectedText = "1";
                     f.TextBoxCashId.SelectedText = z.Text;
                     f.TextBoxCashier.SelectedText = x.Text;
+                    f.TextBoxLogin.SelectedText = m.Text;
+                    f.TextBoxPassword.SelectedText = n.Text;
                     f.Show();
                 }
-                SpisokCassirov.Items.Refresh();
             }
         }
 
@@ -163,7 +166,6 @@ namespace MPS
             NewCashier f = new NewCashier();
             f.TextBoxId.SelectedText = "2";
             f.Show();
-            SpisokCassirov.Items.Refresh();
         }
 
         private void SearchCash(object sender, RoutedEventArgs e)
@@ -194,12 +196,25 @@ namespace MPS
             }
         }
 
-        private void Update__Window(object sender, RoutedEventArgs e)
+        private void LogOut(object sender, RoutedEventArgs e)
         {
-            Admin newWindow = new Admin();
-            Application.Current.MainWindow = newWindow;
-            newWindow.Show();
+            AdminLogin admin = new AdminLogin();
+            admin.Show();
             this.Close();
+        }
+
+        private void UpdWindow(object sender, RoutedEventArgs e)
+        {
+            SpisokCassirov.ItemsSource = null;
+            SpisokProductov.ItemsSource = null;
+            products.Clear();
+            cashiers.Clear();
+            products = BD.ProductList();
+            cashiers = BD.CashierList();
+            SpisokCassirov.ItemsSource = cashiers;
+            SpisokProductov.ItemsSource = products;
+            SpisokCassirov.Items.Refresh();
+            SpisokProductov.Items.Refresh();
         }
     }
 }

@@ -18,8 +18,7 @@ namespace BLL
         }
         public List<ProductModel> ProductList()
         {
-         return bd.Product.ToList().Select(i => new ProductModel(i, CategoryList())).ToList();
-            
+         return bd.Product.ToList().Select(i => new ProductModel(i, CategoryList())).ToList();   
         }
         public List<RecieptModel> RecieptList()
         {
@@ -42,8 +41,8 @@ namespace BLL
             const string SQL = "DELETE FROM Product WHERE Id = ";
             string sql1 = SQL + id;
             bd.Database.ExecuteSqlCommand(sql1);
+            bd.SaveChanges();
         }
-
         public class result
         {
             public int Id { get; set; }
@@ -80,6 +79,7 @@ namespace BLL
 
             string sql = "INSERT INTO Product (Name, Number, Cost, Category_FK, Sale, CostAfterSale) VALUES ('" + name_product + "','" + number + "'," + cost + ","+ category_fk + "," + sale + "," + costSale + ");";
             bd.Database.ExecuteSqlCommand(sql);
+            bd.SaveChanges();
 
         }
 
@@ -87,21 +87,24 @@ namespace BLL
         {
             string sql_update = "UPDATE Product SET Name = '" + name_product + "', Number = '" + number + "', Cost = " + cost + ", Category_FK =" + category_fk + " , Sale =" + sale + " , CostAfterSale =" + costSale + "   WHERE Id = " + id + " ;";
             bd.Database.ExecuteSqlCommand(sql_update);
+            bd.SaveChanges();
 
         }
 
-        public void CreateCashier(string FIO_Cashier)
+        public void CreateCashier(string FIO_Cashier, string Login, string Password)
         {
 
-            string sql = "INSERT INTO Cashier (FIO) VALUES ('" + FIO_Cashier + "');";
+            string sql = "INSERT INTO Cashier (FIO, Login, Password) VALUES ('" + FIO_Cashier + "','" + Login + "','" + Password + "');";
             bd.Database.ExecuteSqlCommand(sql);
+            bd.SaveChanges();
 
         }
 
-        public void UpdateCashier(string id, string FIO_Cashier)
+        public void UpdateCashier(string id, string FIO_Cashier, string Login, string Password)
         {
-            string sql_update = "UPDATE Cashier SET FIO = '" + FIO_Cashier + "' WHERE Id = " + id + " ;";
+            string sql_update = "UPDATE Cashier SET FIO = '" + FIO_Cashier + "', Login ='" + Login + "', Password = '" + Password + "'   WHERE Id = " + id + " ;";
             bd.Database.ExecuteSqlCommand(sql_update);
+            bd.SaveChanges();
         }
 
     }

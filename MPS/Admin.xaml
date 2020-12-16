@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MPS"
         mc:Ignorable="d"
-       Title="Система управления фотостудией" Height="500" Width="970" WindowStartupLocation="CenterScreen">
+       Title="Система управления фотостудией" Height="520" Width="980" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,0,0">
-        <TabControl HorizontalAlignment="Center" Height="459" Margin="0,0,0,0" VerticalAlignment="Center" Width="952">
+        <TabControl HorizontalAlignment="Center" Height="464" Margin="5,0,5,5" VerticalAlignment="Center" Width="952">
             <TabItem Header="Продукты" Width="70">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="SpisokProductov" Margin="0,32,0,0" AutoGenerateColumns="False">
@@ -24,7 +24,8 @@
                     <Button Content="Удалить" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="76" Click="Delete__Prod"/>
                     <Button Content="Изменить" HorizontalAlignment="Left" Margin="110,7,0,0" VerticalAlignment="Top" Width="76" Click="Update__Prod"/>
                     <Button Content="Добавить" HorizontalAlignment="Left" Margin="210,7,0,0" VerticalAlignment="Top" Width="74" Click="Create__Prod"/>
-                    <Button Content="Обновить" HorizontalAlignment="Left" Margin="310,7,0,0" VerticalAlignment="Top" Width="75" Click="Update__Window"/>
+                    <Button Content="Выйти" HorizontalAlignment="Left" Margin="860,7,0,0" VerticalAlignment="Top" Width="76" Click="LogOut"/>
+                    <Button Content="Обновить" HorizontalAlignment="Left" Margin="312,7,0,0" VerticalAlignment="Top" Width="76" Click="UpdWindow"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Кассиры" Width="70">
@@ -33,11 +34,14 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Id}" Header="Идентификатор" Width="100"/>
                             <DataGridTextColumn Binding="{Binding Path=FIO}" Header="Название" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Path=Login}" Header="Логин" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Path=Password}" Header="Пароль" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="Изменить" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="76" Click="Update__Сash"/>
                     <Button Content="Добавить" HorizontalAlignment="Left" Margin="110,7,0,0" VerticalAlignment="Top" Width="74" Click="Create__Сash"/>
-                    <Button Content="Обновить" HorizontalAlignment="Left" Margin="210,7,0,0" VerticalAlignment="Top" Width="74" Click="Update__Window"/>
+                    <Button Content="Выйти" HorizontalAlignment="Left" Margin="860,7,0,0" VerticalAlignment="Top" Width="76" Click="LogOut"/>
+                    <Button Content="Обновить" HorizontalAlignment="Left" Margin="203,7,0,0" VerticalAlignment="Top" Width="76" Click="UpdWindow"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Отчет по кассирам" Width="120">
@@ -56,6 +60,7 @@
                     </DataGrid>
                     <ComboBox x:Name="CahierCombobox" Margin="10,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120"/>
                     <Button Content="Найти" HorizontalAlignment="Left" Margin="135,7,0,0" VerticalAlignment="Top" Width="75" Click="SearchCash"/>
+                    <Button Content="Выйти" HorizontalAlignment="Left" Margin="495,7,0,0" VerticalAlignment="Top" Width="76" Click="LogOut" Grid.Column="1"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Отчет по дате" Width="90">
@@ -71,9 +76,10 @@
                     <DatePicker x:Name="DatePickerLeft" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top"/>
                     <DatePicker x:Name="DatePickerRight" HorizontalAlignment="Left" Margin="115,3,0,0" VerticalAlignment="Top"/>
                     <Button Content="Найти" HorizontalAlignment="Left" Margin="220,7,0,0" VerticalAlignment="Top" Width="74" Click="SearchDate"/>
+                    <Button Content="Выйти" HorizontalAlignment="Left" Margin="860,7,0,0" VerticalAlignment="Top" Width="76" Click="LogOut"/>
                 </Grid>
             </TabItem>
         </TabControl>
-        
+
     </Grid>
 </Window>
