@@ -16,10 +16,10 @@ namespace BLL.Models
         public string ProductName { get; set; }
         public RecieptLineModel(RecieptLine recieptlines, List<ProductModel> products)
         {
-            Id = recieptlines.Id;
-            Count = recieptlines.Count;
-            Product_FK = recieptlines.Product_FK;
-            Reciept_FK = recieptlines.Reciept_FK;
+            Id = recieptlines.id;
+            Count = recieptlines.count;
+            Product_FK = recieptlines.product_id;
+            Reciept_FK = recieptlines.reciept_id;
             ProductName = products.Where(i => i.Id == Product_FK).FirstOrDefault().Name;
         }
     }

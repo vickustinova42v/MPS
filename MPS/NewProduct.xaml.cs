@@ -27,7 +27,7 @@ namespace MPS
             InitializeComponent();
         }
 
-        private void UpdateProd(object sender, RoutedEventArgs e)
+        public void UpdateProd(object sender, RoutedEventArgs e)
         {
             int sale = 0;
             if (BlackRad.IsChecked == true)

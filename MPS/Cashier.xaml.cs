@@ -39,5 +39,17 @@ namespace MPS
         {
             Products.ItemsSource = products;
         }
+
+        private void Create_Reciept(object sender, RoutedEventArgs e)
+        {
+            RecieptModel chek = new RecieptModel();
+            chek.DateTime= DateTime.Now;
+            chek.Result = 999999;
+            chek.Cashier_FK = Convert.ToInt32(CashierId.Text);
+            //BD.CreateReciept(chek);
+            var element = BD.CreateReciept(chek);
+            Console.WriteLine(element);
+            RecieptId.Text = Convert.ToString(element);
+        }
     }
 }

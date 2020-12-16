@@ -67,6 +67,7 @@ namespace BLL
             public int Result { get; set; }
         }
 
+
         public object SearchRecieptCashier(int c)
         {
             SqlParameter param1 = new SqlParameter("@id", c);
@@ -83,11 +84,22 @@ namespace BLL
 
         }
 
-        public void UpdateProduct(string id, string name_product, string number, int cost, int category_fk, int sale, int costSale)
+        public int UpdateProduct(string id, string name_product, string number, int cost, int category_fk, int sale, int costSale)
         {
-            string sql_update = "UPDATE Product SET Name = '" + name_product + "', Number = '" + number + "', Cost = " + cost + ", Category_FK =" + category_fk + " , Sale =" + sale + " , CostAfterSale =" + costSale + "   WHERE Id = " + id + " ;";
-            bd.Database.ExecuteSqlCommand(sql_update);
-            bd.SaveChanges();
+            int Id = Convert.ToInt32(id);
+            var product = bd.Product.Where(c => c.Id == Id).FirstOrDefault();
+
+            product.Name = name_product;
+            product.Number = number;
+            product.Cost = cost;
+            product.Category_FK = category_fk;
+            product.Sale = sale;
+            product.CostAfterSale = costSale;
+
+            return bd.SaveChanges();
+
+            //string sql_update = "UPDATE Product SET Name = '" + name_product + "', Number = '" + number + "', Cost = " + cost + ", Category_FK =" + category_fk + " , Sale =" + sale + " , CostAfterSale =" + costSale + "   WHERE Id = " + id + " ;";
+            //bd.Database.ExecuteSqlCommand(sql_update);
 
         }
 
@@ -107,5 +119,18 @@ namespace BLL
             bd.SaveChanges();
         }
 
+        public class RecieptTest
+        {
+            public int Id { get; set; }
+            public System.DateTime DateTime { get; set; }
+            public int Result { get; set; }
+            public int Cashier_FK { get; set; }
+        }
+        public int CreateReciept(RecieptModel recieptModel)
+        {
+            var RecieptTest = bd.Reciept.Add(new Reciept {DateTime = recieptModel.DateTime, Result = recieptModel.Result, Cashier_FK = recieptModel.Cashier_FK});
+            bd.SaveChanges();
+            return RecieptTest.Id;
+        }
     }
 }

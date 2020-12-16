@@ -25,7 +25,7 @@
                     <Button Content="Изменить" HorizontalAlignment="Left" Margin="110,7,0,0" VerticalAlignment="Top" Width="76" Click="Update__Prod"/>
                     <Button Content="Добавить" HorizontalAlignment="Left" Margin="210,7,0,0" VerticalAlignment="Top" Width="74" Click="Create__Prod"/>
                     <Button Content="Выйти" HorizontalAlignment="Left" Margin="860,7,0,0" VerticalAlignment="Top" Width="76" Click="LogOut"/>
-                    <Button Content="Обновить" HorizontalAlignment="Left" Margin="312,7,0,0" VerticalAlignment="Top" Width="76" Click="UpdWindow"/>
+                    <Button Content="Обновить" HorizontalAlignment="Left" Margin="308,7,0,0" VerticalAlignment="Top" Width="74" Click="UpdData"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Кассиры" Width="70">
@@ -41,7 +41,7 @@
                     <Button Content="Изменить" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="76" Click="Update__Сash"/>
                     <Button Content="Добавить" HorizontalAlignment="Left" Margin="110,7,0,0" VerticalAlignment="Top" Width="74" Click="Create__Сash"/>
                     <Button Content="Выйти" HorizontalAlignment="Left" Margin="860,7,0,0" VerticalAlignment="Top" Width="76" Click="LogOut"/>
-                    <Button Content="Обновить" HorizontalAlignment="Left" Margin="203,7,0,0" VerticalAlignment="Top" Width="76" Click="UpdWindow"/>
+                    <Button Content="Обновить" HorizontalAlignment="Left" Margin="199,7,0,0" VerticalAlignment="Top" Width="74" Click="UpdData"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Отчет по кассирам" Width="120">

@@ -44,12 +44,12 @@
         </EntityType>
         <EntityType Name="RecieptLine">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Count" Type="int" Nullable="false" />
-          <Property Name="Product_FK" Type="int" Nullable="false" />
-          <Property Name="Reciept_FK" Type="int" Nullable="false" />
+          <Property Name="product_id" Type="int" Nullable="false" />
+          <Property Name="reciept_id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="count" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -93,7 +93,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="RecieptLine">
-              <PropertyRef Name="Product_FK" />
+              <PropertyRef Name="product_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -105,7 +105,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="RecieptLine">
-              <PropertyRef Name="Reciept_FK" />
+              <PropertyRef Name="reciept_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -183,12 +183,12 @@
         </EntityType>
         <EntityType Name="RecieptLine">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Count" Type="Int32" Nullable="false" />
-          <Property Name="Product_FK" Type="Int32" Nullable="false" />
-          <Property Name="Reciept_FK" Type="Int32" Nullable="false" />
+          <Property Name="product_id" Type="Int32" Nullable="false" />
+          <Property Name="reciept_id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="count" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="Self.FK_RecieptLine_Product" FromRole="RecieptLine" ToRole="Product" />
           <NavigationProperty Name="Reciept" Relationship="Self.FK_RecieptLine_Reciept" FromRole="RecieptLine" ToRole="Reciept" />
         </EntityType>
@@ -234,7 +234,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="RecieptLine">
-              <PropertyRef Name="Product_FK" />
+              <PropertyRef Name="product_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -246,7 +246,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="RecieptLine">
-              <PropertyRef Name="Reciept_FK" />
+              <PropertyRef Name="reciept_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -324,10 +324,10 @@
           <EntitySetMapping Name="RecieptLine">
             <EntityTypeMapping TypeName="PhotoDBModel.RecieptLine">
               <MappingFragment StoreEntitySet="RecieptLine">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Count" ColumnName="Count" />
-                <ScalarProperty Name="Product_FK" ColumnName="Product_FK" />
-                <ScalarProperty Name="Reciept_FK" ColumnName="Reciept_FK" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="reciept_id" ColumnName="reciept_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="count" ColumnName="count" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -77,7 +77,6 @@ namespace MPS
         private void Update__Prod(object sender, RoutedEventArgs e)
         {
             NewProduct f = new NewProduct();
-
             if (SpisokProductov.SelectedItem == null)
                 MessageBox.Show("Продукт не выбран");
             if (SpisokProductov.SelectedItem != null)
@@ -203,16 +202,18 @@ namespace MPS
             this.Close();
         }
 
-        private void UpdWindow(object sender, RoutedEventArgs e)
+        private void UpdData(object sender, RoutedEventArgs e)
         {
+            CrudOperation BD = new CrudOperation();
             SpisokCassirov.ItemsSource = null;
             SpisokProductov.ItemsSource = null;
             products.Clear();
             cashiers.Clear();
             products = BD.ProductList();
             cashiers = BD.CashierList();
-            SpisokCassirov.ItemsSource = cashiers;
-            SpisokProductov.ItemsSource = products;
+            Fill1();
+            Fill2();
+            Fill3();
             SpisokCassirov.Items.Refresh();
             SpisokProductov.Items.Refresh();
         }
