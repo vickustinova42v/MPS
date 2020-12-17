@@ -26,6 +26,7 @@ namespace MPS
         List<ProductModel> products;
         List<CashierModel> cashiers;
         List<CategoryModel> categorys;
+        int checkNum = 0;
         public Cashier()
         {
             InitializeComponent();
@@ -37,19 +38,73 @@ namespace MPS
 
         void FillProducts()
         {
-            Products.ItemsSource = products;
+            SpisokProduktov.ItemsSource = products;
         }
 
         private void Create_Reciept(object sender, RoutedEventArgs e)
         {
-            RecieptModel chek = new RecieptModel();
-            chek.DateTime= DateTime.Now;
-            chek.Result = 999999;
-            chek.Cashier_FK = Convert.ToInt32(CashierId.Text);
-            //BD.CreateReciept(chek);
-            var element = BD.CreateReciept(chek);
-            Console.WriteLine(element);
-            RecieptId.Text = Convert.ToString(element);
+            if (ProductCount.Text == ""|| ProductCount.Text == "0"|| SpisokProduktov.SelectedItem == null)
+            {
+                MessageBox.Show("Не выбран продукт и/или не введено количество");
+            }
+            else if ( SpisokProduktov.SelectedItem != null)
+            {
+                if (checkNum == 0)
+                {
+                    RecieptModel reciept = new RecieptModel();
+                    reciept.DateTime = DateTime.Now;
+                    reciept.Result = 0;
+                    reciept.Cashier_FK = Convert.ToInt32(CashierId.Text);
+                    var element = BD.CreateReciept(reciept);
+                    Console.WriteLine(element);
+                    RecieptId.Text = Convert.ToString(element);
+                    checkNum = 1;
+
+                    var selectedItem = SpisokProduktov.SelectedItem;
+                    TextBlock x = SpisokProduktov.Columns[0].GetCellContent(SpisokProduktov.Items[SpisokProduktov.SelectedIndex]) as TextBlock;
+
+                    RecieptLineModel line = new RecieptLineModel();
+                    line.Count = Convert.ToInt32(ProductCount.Text);
+                    line.Reciept_FK = element;
+                    line.Product_FK = Convert.ToInt32(x.Text);
+                    BD.CreateLine(line);
+
+                    var recieptId = element;
+                    SpisokLines.ItemsSource = (System.Collections.IEnumerable)BD.PoiskLine(recieptId);
+                }
+                else if (checkNum == 1)
+                {
+                    var selectedItem = SpisokProduktov.SelectedItem;
+                    TextBlock x = SpisokProduktov.Columns[0].GetCellContent(SpisokProduktov.Items[SpisokProduktov.SelectedIndex]) as TextBlock;
+
+                    RecieptLineModel line = new RecieptLineModel();
+                    line.Count = Convert.ToInt32(ProductCount.Text);
+                    line.Reciept_FK = Convert.ToInt32(RecieptId.Text);
+                    line.Product_FK = Convert.ToInt32(x.Text);
+                    BD.CreateLine(line);
+
+                    var recieptId = Convert.ToInt32(RecieptId.Text);
+                    SpisokLines.ItemsSource = (System.Collections.IEnumerable)BD.PoiskLine(recieptId);
+                }
+            } 
+        }
+
+        private void LogOut(object sender, RoutedEventArgs e)
+        {
+            CashierLogin cashierLogin = new CashierLogin();
+            this.Close();
+            cashierLogin.Show();
+        }
+
+        private void NumericOnly(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            e.Handled = IsTextNumeric(e.Text);
+        }
+
+        private static bool IsTextNumeric(string str)
+        {
+            System.Text.RegularExpressions.Regex reg = new System.Text.RegularExpressions.Regex("[^0-9]");
+            return reg.IsMatch(str);
         }
     }
 }

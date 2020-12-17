@@ -23,11 +23,10 @@ namespace MPS
         {
             InitializeComponent();
         }
-        const string password = "12345";
-        Admin admin = new Admin();
-
+        const string password = "12345"; 
         private void CheckPassword(object sender, RoutedEventArgs e)
         {
+            Admin admin = new Admin();
             if (Password.Password == password)
             {
                 this.Close();
@@ -37,6 +36,13 @@ namespace MPS
             {
                 MessageBox.Show("Пароль неверный");
             }
+        }
+
+        private void CashierWindow(object sender, RoutedEventArgs e)
+        {
+            CashierLogin cashierLogin = new CashierLogin();
+            this.Close();
+            cashierLogin.Show();
         }
     }
 }

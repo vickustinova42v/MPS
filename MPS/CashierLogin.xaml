@@ -8,9 +8,10 @@
         Title="Вход" Height="400" Width="400" WindowStartupLocation="CenterScreen" >
     <Grid HorizontalAlignment="Center"  VerticalAlignment="Center">
         <Label Content="Логин" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Login" HorizontalAlignment="Center" Height="23" Margin="0,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Пароль" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="Password" HorizontalAlignment="Center" Height="23" Margin="0,86,0,31" Width="200"/>
-        <Button Content="Войти" HorizontalAlignment="Center" Margin="0,120,0,0" VerticalAlignment="Top" Width="74" Click="CheckPassword"/>
+        <TextBox x:Name="Login" HorizontalAlignment="Center" Height="23" Margin="0,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="Password" HorizontalAlignment="Center" Height="23" Margin="0,75,0,0" VerticalAlignment="Top" Width="200"/>
+        <Button Content="Войти" HorizontalAlignment="Center" Margin="0,105,0,0" VerticalAlignment="Top" Width="74" Click="CheckPassword"/>
+        <Button Content="Администратор" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Width="120" Click="AdminLogin"/>
     </Grid>
 </Window>

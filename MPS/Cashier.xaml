@@ -7,29 +7,40 @@
         mc:Ignorable="d"
         Title="Касса" Height="500" Width="820" WindowStartupLocation="CenterScreen" >
     <Grid HorizontalAlignment="Center"  VerticalAlignment="Center" Width="840">
-        <DataGrid x:Name="Products" HorizontalAlignment="left" Height="350" Margin="20,30,0,0" VerticalAlignment="Top" Width="400" AutoGenerateColumns="False">
+        <DataGrid x:Name="SpisokProduktov" HorizontalAlignment="left" Height="350" Margin="20,30,0,0" VerticalAlignment="Top" Width="400" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="Id" Binding="{Binding Path=Id}" Header="Идентификатор" Width="*" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding Path=Id}" Header="№" Width="25"/>
                 <DataGridTextColumn Binding="{Binding Path=Name}" Header="Название" Width="*"/>
-                <DataGridTextColumn Binding="{Binding Path=Number}" Header="Номер" Width="*" Visibility="Hidden"/>
-                <DataGridTextColumn Binding="{Binding Path=Cost}" Header="Стоимость" Width="*" Visibility="Hidden"/>
                 <DataGridTextColumn Binding="{Binding Path=Category_All_Prod}" Header="Категория" Width="*"/>
-                <DataGridTextColumn Binding="{Binding Path=Sale}" Header="Скидка в %" Width="*" Visibility="Hidden"/>
                 <DataGridTextColumn Binding="{Binding Path=CostAfterSale}" Header="Стоимость" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="Lines" HorizontalAlignment="Right" Height="275" Margin="0,30,20,0" VerticalAlignment="top" Width="400" AutoGenerateColumns="False">
+        <DataGrid x:Name="SpisokLines" HorizontalAlignment="Right" Height="258" Margin="0,30,20,0" VerticalAlignment="top" Width="400" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=Id}" Header="Идентификатор" Width="*" Visibility="Hidden"/>
-                <DataGridTextColumn Binding="{Binding Path=Count}" Header="Количество" Width="*"/>
-                <DataGridTextColumn Binding="{Binding Path=ProductName}" Header="Товар" Width="*"/>
-                <DataGridTextColumn Binding="{Binding Path=Reciept_FK}" Header="Идентификатор чека" Width="*" Visibility="Hidden"/>
-                <DataGridTextColumn Binding="{Binding Path=Product_FK}" Header="Идентификатор продукта" Width="*" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding Path=Id}" Header="№" Width="25"/>
+                <DataGridTextColumn Binding="{Binding Path=count}" Header="Количество" Width="75"/>
+                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Товар" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=reciept_id}" Header="Идентификатор чека" Width="*" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding Path=product_id}" Header="Идентификатор продукта" Width="*" Visibility="Hidden"/>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox IsReadOnly="True" x:Name="CashierName" HorizontalAlignment="Left" Height="23" Margin="40,400,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360"/>
+        <TextBox IsReadOnly="True" x:Name="CashierName" HorizontalAlignment="Left" Height="23" Margin="20,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400"/>
         <TextBox IsReadOnly="True" x:Name="CashierId" HorizontalAlignment="Left" Height="23" Margin="40,400,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Visibility="Hidden"/>
-        <Button Content="Создать чек" HorizontalAlignment="Left" Margin="20,5,0,0" VerticalAlignment="Top" Width="75" Click="Create_Reciept"/>
-        <TextBox IsReadOnly="True" x:Name="RecieptId" HorizontalAlignment="Left" Height="22" Margin="425,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="339,6,0,0" VerticalAlignment="Top" Width="75" Click="Create_Reciept"/>
+        <TextBox IsReadOnly="True" x:Name="RecieptId" HorizontalAlignment="Left" Height="23" Margin="592,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+        <Button Content="Выйти" HorizontalAlignment="Left" Margin="746,6,0,0" VerticalAlignment="Top" Width="74" Click="LogOut"/>
+        <TextBox x:Name="ProductCount" PreviewTextInput="NumericOnly" HorizontalAlignment="Left" Height="22" Margin="154,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Введите количество" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="129"/>
+        <Label Content="Кассир" HorizontalAlignment="Left" Margin="20,385,0,0" VerticalAlignment="Top" Width="60"/>
+        <Label Content="Номер чека" HorizontalAlignment="Left" Margin="592,288,0,0" VerticalAlignment="Top"/>
+        <TextBox IsReadOnly="True" x:Name="RecieptResult" HorizontalAlignment="Left" Height="23" Margin="430,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+        <Label Content="Итоговая сумма" HorizontalAlignment="Left" Margin="430,288,0,0" VerticalAlignment="Top"/>
+        <Button Content="Удалить" HorizontalAlignment="Left" Margin="420,6,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="InputSumm" HorizontalAlignment="Left" Height="23" Margin="430,363,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+        <Label Content="Введенна сумма" HorizontalAlignment="Left" Margin="430,337,0,0" VerticalAlignment="Top"/>
+        <Button Content="Посчитать" HorizontalAlignment="Left" Margin="592,365,0,0" VerticalAlignment="Top" Width="76"/>
+        <Label Content="Сдача" HorizontalAlignment="Left" Margin="430,384,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Change"  HorizontalAlignment="Left" Height="23" Margin="430,411,0,-1" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="592,413,0,0" VerticalAlignment="Top" Width="76"/>
     </Grid>
 </Window>

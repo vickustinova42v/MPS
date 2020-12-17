@@ -8,7 +8,8 @@
         Title="Вход" Height="400" Width="400" WindowStartupLocation="CenterScreen" >
     <Grid HorizontalAlignment="Center"  VerticalAlignment="Center">
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="Password" HorizontalAlignment="Center" Height="23" Margin="0,0,0,0" Width="200"/>
-        <Button Content="Войти" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" Width="75" Click="CheckPassword"/>
+        <PasswordBox x:Name="Password" HorizontalAlignment="Center" Height="23" VerticalAlignment="Top" Margin="0,25,0,0" Width="200"/>
+        <Button Content="Войти" HorizontalAlignment="Center" Margin="0,55,0,0" VerticalAlignment="Top" Width="75" Click="CheckPassword"/>
+        <Button Content="Кассир" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Width="75" Click="CashierWindow"/>
     </Grid>
 </Window>

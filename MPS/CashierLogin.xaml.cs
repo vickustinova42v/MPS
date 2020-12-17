@@ -23,7 +23,7 @@ namespace MPS
     {
         CrudOperation BD = new CrudOperation();
         List<CashierModel> cashiers;
-        Cashier cashier = new Cashier();
+        
         public CashierLogin()
         {
             InitializeComponent();
@@ -32,7 +32,8 @@ namespace MPS
 
         private void CheckPassword(object sender, RoutedEventArgs e)
         {
-        foreach (var stream in cashiers)
+            Cashier cashier = new Cashier();
+            foreach (var stream in cashiers)
             if (stream.Login == Login.Text && stream.Password == Password.Password)
             {
                 cashier.CashierName.Text = stream.FIO;
@@ -40,6 +41,13 @@ namespace MPS
                 cashier.Show();
                 this.Close();
             }
+        }
+
+        private void AdminLogin(object sender, RoutedEventArgs e)
+        {
+            AdminLogin adminLogin = new AdminLogin();
+            this.Close();
+            adminLogin.Show();
         }
     }
 }

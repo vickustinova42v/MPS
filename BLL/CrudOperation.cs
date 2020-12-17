@@ -132,5 +132,27 @@ namespace BLL
             bd.SaveChanges();
             return RecieptTest.Id;
         }
+
+        public void CreateLine(RecieptLineModel recieptLineModel)
+        {
+            bd.RecieptLine.Add(new RecieptLine { count = recieptLineModel.Count, product_id = recieptLineModel.Product_FK, reciept_id = recieptLineModel.Reciept_FK });
+            bd.SaveChanges();
+        }
+
+        public class RecieptLineTest
+        {
+            public int Id { get; set; }
+            public int count { get; set; }
+            public string Name { get; set; }
+            public int reciept_id { get; set; }
+            public int product_id { get; set; }
+        }
+
+        public object PoiskLine(int c)
+        {
+            SqlParameter param1 = new SqlParameter("@id", c);
+            var RecieptLineTest = bd.Database.SqlQuery<RecieptLineTest>("PoiskLine @id", new object[] { param1 }).ToList();
+            return RecieptLineTest;
+        }
     }
 }

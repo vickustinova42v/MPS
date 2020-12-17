@@ -32,7 +32,7 @@ namespace MPS
 
         private void UpdateСash(object sender, RoutedEventArgs e)
         {
-            if (TextBoxCashier.Text == "")
+            if (TextBoxCashier.Text == "" || TextBoxLogin.Text == "" || TextBoxPassword.Text == "")
             {
                 MessageBox.Show("Заполните поле");
             }
