@@ -14,10 +14,11 @@ namespace DAL
     
     public partial class RecieptLine
     {
+        public int Id { get; set; }
+        public int count { get; set; }
         public int product_id { get; set; }
         public int reciept_id { get; set; }
-        public int id { get; set; }
-        public int count { get; set; }
+        public int count_sum { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual Reciept Reciept { get; set; }

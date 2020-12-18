@@ -77,6 +77,10 @@
                     <DatePicker x:Name="DatePickerRight" HorizontalAlignment="Left" Margin="115,3,0,0" VerticalAlignment="Top"/>
                     <Button Content="Найти" HorizontalAlignment="Left" Margin="220,7,0,0" VerticalAlignment="Top" Width="74" Click="SearchDate"/>
                     <Button Content="Выйти" HorizontalAlignment="Left" Margin="860,7,0,0" VerticalAlignment="Top" Width="76" Click="LogOut"/>
+                    <Label Content="Средний чек" HorizontalAlignment="Left" Margin="319,3,0,0" VerticalAlignment="Top" Width="87"/>
+                    <TextBox x:Name="AvarageReciept" HorizontalAlignment="Left" Height="20" Margin="406,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+                    <Label Content="Выручка" HorizontalAlignment="Left" Margin="531,4,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="SumReciept" HorizontalAlignment="Left" Height="20" Margin="593,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
                 </Grid>
             </TabItem>
         </TabControl>

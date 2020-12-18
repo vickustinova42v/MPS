@@ -10,9 +10,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FIO" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FIO" Type="varchar" MaxLength="70" Nullable="false" />
           <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -44,12 +44,13 @@
         </EntityType>
         <EntityType Name="RecieptLine">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="count" Type="int" Nullable="false" />
           <Property Name="product_id" Type="int" Nullable="false" />
           <Property Name="reciept_id" Type="int" Nullable="false" />
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="count" Type="int" Nullable="false" />
+          <Property Name="count_sum" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -143,9 +144,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FIO" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Reciept" Relationship="Self.FK_Reciept_Cashier" FromRole="Cashier" ToRole="Reciept" />
         </EntityType>
         <EntityType Name="Category">
@@ -183,12 +184,13 @@
         </EntityType>
         <EntityType Name="RecieptLine">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="count" Type="Int32" Nullable="false" />
           <Property Name="product_id" Type="Int32" Nullable="false" />
           <Property Name="reciept_id" Type="Int32" Nullable="false" />
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="count" Type="Int32" Nullable="false" />
+          <Property Name="count_sum" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="Self.FK_RecieptLine_Product" FromRole="RecieptLine" ToRole="Product" />
           <NavigationProperty Name="Reciept" Relationship="Self.FK_RecieptLine_Reciept" FromRole="RecieptLine" ToRole="Reciept" />
         </EntityType>
@@ -285,8 +287,8 @@
               <MappingFragment StoreEntitySet="Cashier">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FIO" ColumnName="FIO" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -324,10 +326,11 @@
           <EntitySetMapping Name="RecieptLine">
             <EntityTypeMapping TypeName="PhotoDBModel.RecieptLine">
               <MappingFragment StoreEntitySet="RecieptLine">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="count" ColumnName="count" />
                 <ScalarProperty Name="product_id" ColumnName="product_id" />
                 <ScalarProperty Name="reciept_id" ColumnName="reciept_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="count_sum" ColumnName="count_sum" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

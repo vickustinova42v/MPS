@@ -135,7 +135,7 @@ namespace BLL
 
         public void CreateLine(RecieptLineModel recieptLineModel)
         {
-            bd.RecieptLine.Add(new RecieptLine { count = recieptLineModel.Count, product_id = recieptLineModel.Product_FK, reciept_id = recieptLineModel.Reciept_FK });
+            bd.RecieptLine.Add(new RecieptLine { count = recieptLineModel.Count, product_id = recieptLineModel.Product_FK, reciept_id = recieptLineModel.Reciept_FK, count_sum = recieptLineModel.Count_Sum });
             bd.SaveChanges();
         }
 
@@ -146,6 +146,7 @@ namespace BLL
             public string Name { get; set; }
             public int reciept_id { get; set; }
             public int product_id { get; set; }
+            public int count_sum { get; set; }
         }
 
         public object PoiskLine(int c)
@@ -153,6 +154,41 @@ namespace BLL
             SqlParameter param1 = new SqlParameter("@id", c);
             var RecieptLineTest = bd.Database.SqlQuery<RecieptLineTest>("PoiskLine @id", new object[] { param1 }).ToList();
             return RecieptLineTest;
+        }
+
+        public string SumReciept(DateTime date1, DateTime date2)
+        {
+            var total = bd.Reciept.Where(r => r.DateTime >= date1 && r.DateTime <= date2).Sum(r => r.Result);
+            return Convert.ToString(total);
+        }
+
+        public string ResultReciept(int id)
+        {
+            var total = bd.RecieptLine.Where(r => r.reciept_id == id).Sum(r => r.count_sum);
+            return Convert.ToString(total);
+        }
+
+        public void DeleteLines(string id)
+        {
+            const string SQL = "DELETE FROM RecieptLine WHERE Id = ";
+            string sql1 = SQL + id;
+            bd.Database.ExecuteSqlCommand(sql1);
+            bd.SaveChanges();
+        }
+
+        public void UpdateReciept(RecieptModel recieptModel)
+        {
+            var reciept = bd.Reciept.Where(c => c.Id == recieptModel.Id).FirstOrDefault();
+
+            reciept.Result = recieptModel.Result;
+            reciept.DateTime = DateTime.Now;
+            reciept.Cashier_FK = recieptModel.Cashier_FK;
+
+            bd.SaveChanges();
+
+            //string sql_update = "UPDATE Product SET Name = '" + name_product + "', Number = '" + number + "', Cost = " + cost + ", Category_FK =" + category_fk + " , Sale =" + sale + " , CostAfterSale =" + costSale + "   WHERE Id = " + id + " ;";
+            //bd.Database.ExecuteSqlCommand(sql_update);
+
         }
     }
 }

@@ -192,6 +192,19 @@ namespace MPS
                 DateTime selectedDateLeft = (DateTime)DatePickerLeft.SelectedDate;
                 DateTime selectedDateRight = (DateTime)DatePickerRight.SelectedDate;
                 DateResult.ItemsSource = (System.Collections.IEnumerable)BD.SearchRecieptDate(selectedDateLeft, selectedDateRight);
+                if(DateResult.Items.Count > 1)
+                {
+                    SumReciept.Text = BD.SumReciept(selectedDateLeft, selectedDateRight);
+                    int sum = Convert.ToInt32(SumReciept.Text);
+                    double avarageSum = sum / (DateResult.Items.Count - 1);
+                    int avarageSumText = (int)Math.Round(avarageSum);
+                    AvarageReciept.Text = Convert.ToString(avarageSumText);
+                }
+                if (DateResult.Items.Count == 1)
+                {
+                    AvarageReciept.Text = "";
+                    SumReciept.Text = "";
+                }
             }
         }
 
